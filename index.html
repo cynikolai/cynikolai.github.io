@@ -1,1 +1,240 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      .container-fluid {
+        padding: 0 60px; /* Padding on both sides */
+        min-height: 100%;
+        position: relative; /* For footer positioning */
+      }
+      .d-flex {
+        padding: 20px 0; /* Padding on top and bottom */
+      }
+      #sidebar-wrapper {
+        width: 300px;
+        padding: 0 20px; /* Padding on both sides of sidebar */
+      }
+      #sidebar-wrapper .sidebar-heading img {
+        width: 200px;
+        height: 200px;
+        border: 2px solid lightgrey;
+        border-radius: 50%;
+      }
+      #sidebar-wrapper .sidebar-heading p {
+        text-align: center;
+      }
+      #page-content-wrapper {
+        flex: 1;
+        padding: 30px 20px; /* Small buffer below the header */
+      }
+      .navbar {
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 10px; /* Explicit small buffer below the header */
+        margin-top: 0px; /* Explicit small buffer above the header */
+        padding: 10px 80px; /* Sides padding */
+      }
+      .navbar-brand {
+        color: black !important;
+      }
+      .nav-link {
+        color: grey !important;
+        margin-left: 30px; /* Buffer between "CV" and "Cyrus Nikolaidis" */
+      }
+      .nav-link:hover {
+        color: black !important;
+      }
+      footer {
+        background-color: white;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+        color: #aaa;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin-bottom: 10px; /* Explicit small buffer below the footer */
+      }
+      .list-group-item {
+        border: none;
+        font-size: 0.8rem;
+        display: flex; /* Horizontal layout */
+        justify-content: flex-start; /* Align to the left */
+        align-items: center; /* Center vertically */
+      }
+      i.far,
+      i.fab {
+        font-size: 0.8rem;
+        margin-right: 10px; /* Space between icon and text */
+      }
+
+    .emoji-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      font-size: 72px;
+    }
+
+    .emoji {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+
+    .emoji:first-child {
+      animation-name: fadeOut;
+    }
+
+    .emoji:last-child {
+      animation-name: fadeIn;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">Cyrus Nikolaidis</a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">CV</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="d-flex">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" class="border-right p-3">
+          <div class="sidebar-heading text-center">
+            <img src="static/me.png" alt="Cyrus Nikolaidis" />
+            <h5 class="mt-4"> Cyrus Nikolaidis</h5>
+          </div>
+          <p class="mt-4" style="font-size: 14px; color: #777">
+            I'm a software developer, focused on practical applications of
+            machine learning and artificial intelligence, in particular large
+            language models and recommendation systems. I'm working at Meta as a
+            senior software engineer.
+          </p>
+          <div class="list-group list-group-flush">
+            <a href="" class="list-group-item list-group-item-action">
+              <i class="far fa-map"></i> New York, NY
+            </a>
+            <a
+              href="mailto:cyni.contact@icloud.com"
+              class="list-group-item list-group-item-action"
+            >
+              <i class="far fa-envelope"></i> Email
+            </a>
+            <a
+              href="https://linkedin.com/in/cynikolai"
+              class="list-group-item list-group-item-action"
+            >
+              <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+            <a
+              href="https://github.com/cynikolai"
+              class="list-group-item list-group-item-action"
+            >
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <h3>About Me</h3>
+          <br \>
+          <p>I'm a software developer in NYC. I specialize in practical applications of ML and AI! &nbsp; 🤖</p>
+          <p>💼 &nbsp;I currently work as a senior SWE and tech lead at Meta. My most recent work has been building on top of LLMs to predict the privacy implications of code and data. Our team started as a 0→1 effort, but we now maintain several platforms used across dozens of orgs.</p>
+          <p>Previously, i've worked on a variety of interesting projects, including: </p>
+          <div class="container">
+            <div class="container">
+                <ul class="list-unstyled">
+                  <li>
+                    Creating the first ranking system for <a href="https://www.theverge.com/2020/8/19/21373809/instagram-suggested-posts-update-end-feed">Instagram's feed recommendations product</a>, which launched to 1B+ users in 2020.
+                  </li>
+                  <li>
+                    Driver pay and incentives at Lyft, and bootstrapping <a href="https://www.businessinsider.com/lyft-launches-food-delivery-through-olo-partnership-2021-12">Lyft Delivery</a>.
+                  </li>
+                  <li>
+                    Making ranking quality improvements to Facebook's core search product.
+                  </li>
+                </ul>
+              </div>
+
+              I gravitate towards projects which apply the most powerful systems creatively and effectively, and have massive real impact.
+                <br \>
+                <br \>
+
+              <style>
+                .list-unstyled li::before {
+                  content: "\2022"; /* Use a bullet character */
+                  margin-right: 10px; /* Adjust spacing between bullet and text */
+                }
+              </style>
+
+<p>
+    <strong>🎓 &nbsp;MSE Computer Science & Engineering</strong>, University of Michigan <em>(2018)</em>
+  </p>
+  <p>
+    <strong>🎓  &nbsp;BS Physics & Computer Science</strong>, University of Michigan <em>(2017)</em>
+  </p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="text-center mt-4">
+        <p>© 2023 Cyrus Nikolaidis. All Rights Reserved.</p>
+      </footer>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
