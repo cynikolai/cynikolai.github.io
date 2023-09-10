@@ -26,7 +26,8 @@
         position: relative; /* For footer positioning */
       }
       .d-flex {
-        padding: 20px 0; /* Padding on top and bottom */
+        padding-top: 10px;
+        padding-bottom: 20px;
       }
       #sidebar-wrapper {
         width: 300px;
@@ -47,7 +48,7 @@
       }
       .navbar {
         border-bottom: 1px solid #ccc;
-        margin-bottom: 10px; /* Explicit small buffer below the header */
+        margin-bottom: 0px; /* Explicit small buffer below the header */
         margin-top: 0px; /* Explicit small buffer above the header */
         padding: 10px 80px; /* Sides padding */
       }
@@ -84,54 +85,10 @@
         font-size: 0.8rem;
         margin-right: 10px; /* Space between icon and text */
       }
-
-    .emoji-container {
-      position: relative;
-      width: 100px;
-      height: 100px;
-      font-size: 72px;
-    }
-
-    .emoji {
-      position: absolute;
-      top: 0;
-      left: 0;
-      animation-duration: 2s;
-      animation-iteration-count: infinite;
-    }
-
-    .emoji:first-child {
-      animation-name: fadeOut;
-    }
-
-    .emoji:last-child {
-      animation-name: fadeIn;
-    }
-
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
+      #sidebar-wrapper a,
+      #page-content-wrapper a {
+        color: grey !important; /* 'grey' color for links */
       }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-
-    @keyframes fadeOut {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-
     </style>
   </head>
   <body>
@@ -153,18 +110,16 @@
         <div id="sidebar-wrapper" class="border-right p-3">
           <div class="sidebar-heading text-center">
             <img src="static/me.png" alt="Cyrus Nikolaidis" />
-            <h5 class="mt-4"> Cyrus Nikolaidis</h5>
+            <h5 class="mt-4">Cyrus Nikolaidis</h5>
           </div>
           <p class="mt-4" style="font-size: 14px; color: #777">
-            I'm a software developer, focused on practical applications of
-            machine learning and artificial intelligence, in particular large
-            language models and recommendation systems. I'm working at Meta as a
-            senior software engineer.
+            🤖 &nbsp; Applied AI/ML Engineer
+            <br />
+            💼 &nbsp; SWE @ Meta
+            <br />
+            📍 &nbsp; New York, NY
           </p>
           <div class="list-group list-group-flush">
-            <a href="" class="list-group-item list-group-item-action">
-              <i class="far fa-map"></i> New York, NY
-            </a>
             <a
               href="mailto:cyni.contact@icloud.com"
               class="list-group-item list-group-item-action"
@@ -188,50 +143,104 @@
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-          <h3>About Me</h3>
-          <br \>
-          <p><strong>💼 &nbsp; About my work:</strong> I'm a software developer in NYC. I specialize in practical applications of ML and AI! &nbsp; 🤖</p>
-          <p>I currently work as a senior SWE and tech lead at Meta. My most recent work has been building on top of LLMs to predict the privacy implications of code and data. Our team started as a 0→1 effort, but we now maintain several platforms used across dozens of orgs.</p>
-          <p>Previously, i've worked on a variety of interesting projects, including: </p>
+          <h4>About Me</h4>
+          <br \ />
+          <p>
+            <strong>About my work:</strong> I'm a software developer in NYC. I
+            specialize in practical applications of ML and AI!
+          </p>
+          <p>
+            I currently work as a senior SWE and tech lead at Meta. We develop
+            tools using LLMs to predict the privacy implications of code and
+            data. We've bootstrapped this work from a prototype to a platform
+            that is used across dozens of teams.
+          </p>
+          <p>
+            Previously, i've worked on a variety of interesting projects,
+            including:
+          </p>
           <div class="container">
             <div class="container">
-                <ul class="list-unstyled">
-                  <li>
-                    Creating the first ranking system for <a href="https://www.theverge.com/2020/8/19/21373809/instagram-suggested-posts-update-end-feed">Instagram's feed recommendations product</a>, which launched to 1B+ users in 2020.
-                  </li>
-                  <li>
-                    Driver pay and incentives at Lyft, and bootstrapping <a href="https://www.businessinsider.com/lyft-launches-food-delivery-through-olo-partnership-2021-12">Lyft Delivery</a>.
-                  </li>
-                  <li>
-                    Making ranking quality improvements to Facebook's core search product.
-                  </li>
-                </ul>
-              </div>
+              <ul class="list-unstyled">
+                <li>
+                  Creating the first ranking system for
+                  <a
+                    href="https://www.theverge.com/2020/8/19/21373809/instagram-suggested-posts-update-end-feed"
+                    >Instagram's feed recommendations product</a
+                  >, which launched to 1B+ users in 2020.
+                </li>
+                <li>
+                  Driver pay and incentives at Lyft, and bootstrapping
+                  <a
+                    href="https://www.businessinsider.com/lyft-launches-food-delivery-through-olo-partnership-2021-12"
+                    >Lyft Delivery</a
+                  >.
+                </li>
+                <li>
+                  Making ranking quality improvements to Facebook's core search
+                  product.
+                </li>
+              </ul>
+            </div>
 
-              I gravitate towards projects which apply the most powerful systems creatively and effectively, and have massive real impact.
-                <br \>
-                <br \>
+            <style>
+              .list-unstyled li::before {
+                content: "\2022"; /* Use a bullet character */
+                margin-right: 10px; /* Adjust spacing between bullet and text */
+              }
+            </style>
+          </div>
 
-              <style>
-                .list-unstyled li::before {
-                  content: "\2022"; /* Use a bullet character */
-                  margin-right: 10px; /* Adjust spacing between bullet and text */
-                }
-              </style>
+          I gravitate towards projects which apply the most powerful systems
+          creatively and effectively, and have massive real impact.
 
-<p>
-    <strong>🎓 &nbsp;MSE Computer Science & Engineering</strong>, University of Michigan <em>(2018)</em>
-  </p>
-  <p>
-    <strong>🎓  &nbsp;BS Physics & Computer Science</strong>, University of Michigan <em>(2017)</em>
-  </p>
+          <br /><br />
+          <p>
+            <strong>Personal stuff:</strong> I grew up in Ann Arbor, MI, and
+            went to the University of Michigan for school in CS and Physics.
+            After leaving, I lived in Seattle for about a year before moving to
+            New York.
+          </p>
+          <p>In my free time, I like to:</p>
+
+          <div class="container">
+            <div class="container">
+              <ul class="list-hobbies">
+                <li>📖 &nbsp; Read lots of books;</li>
+                <li>
+                  🚶🏽 &nbsp; Walk around <em>a lot</em> (whether in a city or on
+                  a trip);
+                </li>
+                <li>☕ &nbsp; Maintain coffee and tea addictions;</li>
+                <li>✈️ &nbsp; Travel to new places!</li>
+              </ul>
+            </div>
+            <style>
+              .list-hobbies {
+                list-style-type: none; /* No bullets */
+                margin: 0; /* Remove default margins */
+                padding: 0; /* Remove default padding */
+              }
+              .list-hobbies li::before {
+                margin-right: 10px; /* Adjust spacing between bullet and text */
+              }
+            </style>
+          </div>
+          <br />
+          <p>
+            I also love to meet new people! If you're interested in chatting,
+            <a href="mailto:cyni.contact@icloud.com"
+              >feel free to reach out.
+            </a>
+          </p>
+          <br />
         </div>
-      </div>
 
-      <!-- Footer -->
-      <footer class="text-center mt-4">
-        <p>© 2023 Cyrus Nikolaidis. All Rights Reserved.</p>
-      </footer>
+        <!-- Footer -->
+        <footer class="text-center mt-4">
+          <p>© 2023 Cyrus Nikolaidis. All Rights Reserved.</p>
+        </footer>
+      </div>
     </div>
 
     <!-- Bootstrap JS -->
