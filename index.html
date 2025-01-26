@@ -3,11 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <title>Cyrus Nikolaidis</title>
-    <!-- Google Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
@@ -15,14 +10,23 @@
     />
     <!-- FontAwesome Icons -->
     <style>
+      /* Font face declaration for Overused Grotesk */
+      @font-face {
+        font-family: "Overused Grotesk";
+        src: url("fonts/OverusedGrotesk-Book.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap; /* Ensures text remains visible during font loading */
+      }
+
       html,
       body {
         margin: 0;
         padding: 0;
         height: 100%;
-        font-family: "Lato", sans-serif;
-        font-size: 16px;
-        background-color: #dfdfdf;
+        font-family: "Overused Grotesk", system-ui, -apple-system, sans-serif; /* Added system fonts as fallback */
+        font-size: 18px;
+        background-color: #e3e3e3;
         color: #222;
       }
 
@@ -69,7 +73,7 @@
       }
       /* Slightly more spacing between lines in this paragraph */
       p.spaced-lines {
-        font-size: 14px;
+        font-size: 16px;
         color: #777;
         margin: 10px 0;
         line-height: 1.8;
@@ -84,7 +88,7 @@
 
       .list-group-item {
         border: none;
-        font-size: 0.9rem;
+        font-size: 1rem;
         display: flex;
         align-items: center;
         background: none;
@@ -94,7 +98,7 @@
       i.far,
       i.fab,
       i.fa-brands {
-        font-size: 0.9rem;
+        font-size: 1rem;
         margin-right: 10px;
       }
 
@@ -124,18 +128,16 @@
       }
       .update-list li {
         margin-bottom: 8px;
-        font-size: 14px;
+        font-size: 15px;
       }
       .update-date {
-        font-weight: 700;
+        font-weight: 900; /* Updated to match Black weight */
         color: #0056b3;
       }
 
       footer {
-        background: #dfdfdf;
-        border-top: 1px solid #ccc;
         padding: 10px;
-        color: #aaa;
+        color: #767676;
         text-align: center;
       }
       footer p {
@@ -156,7 +158,8 @@
                 <img src="static/me.png" alt="Cyrus Nikolaidis" />
                 <h5>Cyrus Nikolaidis</h5>
               </div>
-              <p class="spaced-lines">
+              <br />
+              <p class="spaced-lines" style="margin-bottom: 10">
                 🤖 &nbsp; Applied AI/ML Engineer <br />
                 💼 &nbsp; SWE @ Meta <br />
                 📍 &nbsp; New York, NY
@@ -192,26 +195,29 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
               <div class="about-section">
-                <h4 style="margin-bottom: 20px">About Me</h4>
+                <h4 style="margin-bottom: 10px">About Me</h4>
                 <p>
-                  I’m interested in ML, AI, Security, and Privacy. I'm currently
+                  I'm interested in ML, AI, Security, and Privacy. I'm currently
                   a Senior Machine Learning Engineer at Meta, where for the last
-                  few years I’ve been working on incubating the use of ML and
+                  few years I've been working on incubating the use of ML and
                   LLM deployments in the Privacy and Security orgs.
                 </p>
                 <p>
                   My latest work has been focused on mitigating security and
                   reliability risks in GenAI applications. A lot of this work
-                  has been released into Meta’s Llama ecosystem. Projects I’m
-                  involved with include
-                  <a href="https://github.com/meta-llama/PurpleLlama">CyberSecEval</a>,
+                  has been released open-source into Meta's Llama ecosystem.
+                  Projects I work on include
+                  <a href="https://github.com/meta-llama/PurpleLlama"
+                    >CyberSecEval</a
+                  >,
                   <a href="https://huggingface.co/meta-llama/Prompt-Guard-86M"
                     >PromptGuard</a
                   >,
                   <a href="https://huggingface.co/meta-llama/Llama-Guard-3-8B"
                     >LlamaGuard 3</a
                   >, and
-                  <a href="https://github.com/meta-llama/llama-stack">The Llama Stack</a
+                  <a href="https://github.com/meta-llama/llama-stack"
+                    >The Llama Stack</a
                   >.
                 </p>
                 <p>
@@ -290,9 +296,11 @@
                   </li>
                   <li>
                     <span class="update-date">December 2023 –</span>
-                    New paper: 
+                    New paper:
                     <a href="https://arxiv.org/abs/2312.04724">
-                      Purple Llama CyberSecEval: A Secure Coding Benchmark for Language Models
+                      Purple Llama CyberSecEval: A Secure Coding Benchmark for
+                      Language Models
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -303,7 +311,7 @@
 
       <!-- Footer at the bottom -->
       <footer>
-        <p>© 2023 Cyrus Nikolaidis. All Rights Reserved.</p>
+        <p>© 2025 Cyrus Nikolaidis. All Rights Reserved.</p>
       </footer>
     </div>
 
