@@ -13,10 +13,10 @@
       /* Font face declaration for Overused Grotesk */
       @font-face {
         font-family: "Overused Grotesk";
-        src: url("fonts/OverusedGrotesk-Book.woff2") format("woff2");
+        src: url("fonts/OverusedGrotesk-Roman.woff2") format("woff2");
         font-weight: 400;
         font-style: normal;
-        font-display: swap; /* Ensures text remains visible during font loading */
+        font-display: swap;
       }
 
       html,
@@ -24,7 +24,7 @@
         margin: 0;
         padding: 0;
         height: 100%;
-        font-family: "Overused Grotesk", system-ui, -apple-system, sans-serif; /* Added system fonts as fallback */
+        font-family: "Overused Grotesk", system-ui, -apple-system, sans-serif;
         font-size: 18px;
         background-color: #e3e3e3;
         color: #222;
@@ -35,6 +35,7 @@
         display: flex;
         flex-direction: column;
       }
+
       .main-content {
         flex: 1;
       }
@@ -52,26 +53,25 @@
         padding: 0 60px;
         max-width: 1400px;
       }
-      .d-flex {
-        display: flex;
-        gap: 20px;
+
+      /* Sidebar buffer under last item (Google Scholar) */
+      #sidebar-wrapper .list-group {
+        margin-bottom: 20px;
       }
 
       /* Sidebar */
-      #sidebar-wrapper {
-        width: 300px;
-      }
       #sidebar-wrapper .sidebar-heading img {
         width: 180px;
         height: 180px;
         border: 2px solid lightgrey;
         border-radius: 50%;
       }
+
       #sidebar-wrapper .sidebar-heading h5 {
         margin-top: 15px;
         margin-bottom: 0;
       }
-      /* Slightly more spacing between lines in this paragraph */
+
       p.spaced-lines {
         font-size: 16px;
         color: #777;
@@ -79,7 +79,7 @@
         line-height: 1.8;
       }
 
-      /* Remove background on hover for list-group-item-action */
+      /* Remove background hover for list-group-item-action */
       .list-group-item-action:hover,
       .list-group-item-action:focus {
         background-color: transparent !important;
@@ -95,6 +95,7 @@
         padding-left: 0;
         padding-right: 0;
       }
+
       i.far,
       i.fab,
       i.fa-brands {
@@ -102,47 +103,92 @@
         margin-right: 10px;
       }
 
-      /* Main content */
-      #page-content-wrapper {
-        flex: 1;
-      }
+      /* About/Updates styling */
       .about-section {
+        margin-top: 0;
+      }
+
+      .updates-section {
         margin-top: 5px;
       }
-      .updates-section {
-        margin-top: 10px;
-      }
+
       h4 {
         margin: 0 0 10px 0;
         color: #2c3e50;
       }
+
       p {
         margin: 0 0 10px 0;
       }
 
-      /* Updates list */
-      .update-list {
-        list-style-type: disc;
-        padding-left: 20px;
-        margin: 0;
-      }
-      .update-list li {
-        margin-bottom: 8px;
-        font-size: 15px;
-      }
-      .update-date {
-        font-weight: 900; /* Updated to match Black weight */
-        color: #0056b3;
+      /* Updates "invisible table" */
+      .updates-table {
+        display: table;
+        width: 100%;
       }
 
+      .update-row {
+        display: table-row;
+      }
+
+      .update-cell {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 4px 8px;
+        font-size: 14px; /* Smaller font for updates */
+      }
+
+      .update-date {
+        font-weight: 900;
+        color: #0056b3;
+        white-space: nowrap;
+      }
+
+      /* Footer */
       footer {
         padding: 10px;
         color: #767676;
         text-align: center;
       }
+
       footer p {
         margin: 0;
         font-size: 12px;
+      }
+
+      /* Outlined badges with fixed width, text centered, smaller font */
+      .badge-outlined {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+        width: 180px; /* Fixed width to fit "Speaking Engagement" comfortably */
+        padding: 0.3em 0.6em;
+        font-size: 0.7rem; /* Slightly smaller font */
+        font-weight: 500;
+        line-height: 1.2;
+        border-radius: 0.25rem;
+        margin-right: 8px;
+        background-color: transparent;
+        border: 1px solid;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      /* Custom badge colors */
+      .badge-speaking {
+        color: #8b0000; /* Deep red */
+        border-color: #8b0000;
+      }
+
+      .badge-paper {
+        color: #00008b; /* Deep blue */
+        border-color: #00008b;
+      }
+
+      .badge-launch {
+        color: #006400; /* Deep green */
+        border-color: #006400;
       }
     </style>
   </head>
@@ -151,14 +197,14 @@
       <br />
       <div class="main-content">
         <div class="container-fluid">
-          <div class="d-flex">
+          <!-- Use Bootstrap row/columns to allow sidebar to stack on smaller screens -->
+          <div class="row">
             <!-- Sidebar -->
-            <div id="sidebar-wrapper">
+            <div class="col-12 col-md-3" id="sidebar-wrapper">
               <div class="sidebar-heading text-center mb-4">
                 <img src="static/me.png" alt="Cyrus Nikolaidis" />
                 <h5>Cyrus Nikolaidis</h5>
               </div>
-              <br />
               <p class="spaced-lines" style="margin-bottom: 10">
                 🤖 &nbsp; Applied AI/ML Engineer <br />
                 💼 &nbsp; SWE @ Meta <br />
@@ -192,8 +238,8 @@
               </div>
             </div>
 
-            <!-- Page Content -->
-            <div id="page-content-wrapper">
+            <!-- Main Content -->
+            <div class="col-12 col-md-9" id="page-content-wrapper">
               <div class="about-section">
                 <h4 style="margin-bottom: 10px">About Me</h4>
                 <p>
@@ -232,84 +278,146 @@
               <br />
               <div class="updates-section">
                 <h4 style="margin-bottom: 20px">Updates</h4>
-                <ul class="update-list">
-                  <li>
-                    <span class="update-date">February 2025 –</span>
-                    Will be attending and hosting a workshop and demo session at
-                    the
-                    <a
-                      href="https://aisecurity.forum/paris-ai-security-forum-25"
-                    >
-                      AI Security Forum
-                    </a>
-                    in Paris.
-                  </li>
-                  <li>
-                    <span class="update-date">August 2024 –</span>
-                    Spoke at
-                    <a href="https://aivillage.org/">DefCon AI Village</a> -
-                    "Evaluations and Guardrails against Prompt Injection attacks
-                    on LLM powered-applications".
-                  </li>
-                  <li>
-                    <span class="update-date">August 2024 –</span>
-                    Hosted a workshop at the
-                    <a
-                      href="https://aisecurity.forum/past-events/ai-security-forum-24"
-                      >AI Security Forum</a
-                    >.
-                  </li>
-                  <li>
-                    <span class="update-date">July 2024 –</span>
-                    New paper:
-                    <a href="https://arxiv.org/abs/2408.01605"
-                      >CYBERSECEVAL 3: Advancing the Evaluation of Cybersecurity
-                      Risks and Capabilities in Large Language Models</a
-                    >
-                  </li>
-                  <li>
-                    <span class="update-date">July 2024 –</span>
-                    <a href="https://arxiv.org/abs/2407.21783"
-                      >Llama 3 Herd of Models</a
-                    >
-                    paper released. Our team worked on cybersecurity risk
-                    measurements of the models.
-                  </li>
-                  <li>
-                    <span class="update-date">July 2024 –</span>
-                    Launched
-                    <a href="https://huggingface.co/meta-llama/Prompt-Guard-86M"
-                      >PromptGuard</a
-                    >
-                    and
-                    <a href="https://huggingface.co/meta-llama/Llama-Guard-3-8B"
-                      >LlamaGuard 3</a
-                    >, part of Meta's system level safety stack for Llama.
-                  </li>
-                  <li>
-                    <span class="update-date">April 2024 –</span>
-                    New paper:
-                    <a href="https://arxiv.org/abs/2404.13161">
-                      CyberSecEval 2: A Wide-Ranging Cybersecurity Evaluation
-                      Suite for Large Language Models
-                    </a>
-                  </li>
-                  <li>
-                    <span class="update-date">December 2023 –</span>
-                    New paper:
-                    <a href="https://arxiv.org/abs/2312.04724">
-                      Purple Llama CyberSecEval: A Secure Coding Benchmark for
-                      Language Models
-                    </a>
-                  </li>
-                </ul>
+                <div class="updates-table">
+                  <div class="update-row">
+                    <div class="update-cell update-date">Feb 2025</div>
+                    <div class="update-cell">
+                      <span class="badge-outlined badge-speaking">
+                        Speaking Engagement
+                      </span>
+                    </div>
+                    <div class="update-cell">
+                      Will be attending and hosting a workshop and demo session
+                      at
+                      <a
+                        href="https://aisecurity.forum/paris-ai-security-forum-25"
+                      >
+                        AI Security Forum
+                      </a>
+                      in Paris.
+                    </div>
+                  </div>
+
+                  <div class="update-row">
+                    <div class="update-cell update-date">Aug 2024</div>
+                    <div class="update-cell">
+                      <span class="badge-outlined badge-speaking">
+                        Speaking Engagement
+                      </span>
+                    </div>
+                    <div class="update-cell">
+                      Spoke at
+                      <a href="https://aivillage.org/">DefCon AI Village</a>
+                      — "Evaluations and Guardrails against Prompt Injection
+                      attacks on LLM-powered applications."
+                    </div>
+                  </div>
+
+                  <div class="update-row">
+                    <div class="update-cell update-date">Aug 2024</div>
+                    <div class="update-cell">
+                      <span class="badge-outlined badge-speaking">
+                        Speaking Engagement
+                      </span>
+                    </div>
+                    <div class="update-cell">
+                      Hosted a workshop at the
+                      <a
+                        href="https://aisecurity.forum/past-events/ai-security-forum-24"
+                      >
+                        AI Security Forum
+                      </a>
+                      .
+                    </div>
+                  </div>
+
+                  <div class="update-row">
+                    <div class="update-cell update-date">Jul 2024</div>
+                    <div class="update-cell">
+                      <span class="badge-outlined badge-paper">New Paper</span>
+                    </div>
+                    <div class="update-cell">
+                      <a href="https://arxiv.org/abs/2408.01605">
+                        CYBERSECEVAL 3: Advancing the Evaluation of
+                        Cybersecurity Risks and Capabilities in Large Language
+                        Models
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="update-row">
+                    <div class="update-cell update-date">Jul 2024</div>
+                    <div class="update-cell">
+                      <span class="badge-outlined badge-paper">New Paper</span>
+                    </div>
+                    <div class="update-cell">
+                      <a href="https://arxiv.org/abs/2407.21783">
+                        Llama 3 Herd of Models.
+                      </a>
+                      Our team worked on cybersecurity risk measurements of the
+                      models and the system-level safety models.
+                    </div>
+                  </div>
+
+                  <div class="update-row">
+                    <div class="update-cell update-date">Jul 2024</div>
+                    <div class="update-cell">
+                      <span class="badge-outlined badge-launch">
+                        Product Launch
+                      </span>
+                    </div>
+                    <div class="update-cell">
+                      Launched
+                      <a
+                        href="https://huggingface.co/meta-llama/Prompt-Guard-86M"
+                      >
+                        PromptGuard
+                      </a>
+                      and
+                      <a
+                        href="https://huggingface.co/meta-llama/Llama-Guard-3-8B"
+                      >
+                        LlamaGuard 3,
+                      </a>
+                      part of Meta's system-level safety stack for Llama.
+                    </div>
+                  </div>
+
+                  <div class="update-row">
+                    <div class="update-cell update-date">Apr 2024</div>
+                    <div class="update-cell">
+                      <span class="badge-outlined badge-paper">New Paper</span>
+                    </div>
+                    <div class="update-cell">
+                      <a href="https://arxiv.org/abs/2404.13161">
+                        CyberSecEval 2: A Wide-Ranging Cybersecurity Evaluation
+                        Suite for Large Language Models
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="update-row">
+                    <div class="update-cell update-date">Dec 2023</div>
+                    <div class="update-cell">
+                      <span class="badge-outlined badge-paper">New Paper</span>
+                    </div>
+                    <div class="update-cell">
+                      <a href="https://arxiv.org/abs/2312.04724">
+                        Purple Llama CyberSecEval: A Secure Coding Benchmark for
+                        Language Models
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+            <!-- end col -->
           </div>
+          <!-- end row -->
         </div>
       </div>
 
-      <!-- Footer at the bottom -->
+      <!-- Footer -->
       <footer>
         <p>© 2025 Cyrus Nikolaidis. All Rights Reserved.</p>
       </footer>
