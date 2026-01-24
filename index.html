@@ -17,15 +17,22 @@
       font-display: swap;
     }
 
-    html,
+    html {
+      background-color: #fafafa;
+      overscroll-behavior: none;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      height: 100%;
+      min-height: 100%;
       font-family: "Overused Grotesk", system-ui, -apple-system, sans-serif;
       font-size: 18px;
-      background-color: #e3e3e3;
-      color: #222;
+      background: radial-gradient(ellipse at 30% 20%, rgba(99, 102, 241, 0.25) 0%, transparent 50%),
+                  radial-gradient(ellipse at 80% 80%, rgba(129, 140, 248, 0.18) 0%, transparent 40%),
+                  #fafafa;
+      background-attachment: fixed;
+      color: #1e1b4b;
     }
 
     .page-wrap {
@@ -40,66 +47,68 @@
 
     a {
       text-decoration: none;
-      color: #0056b3;
+      color: #4f46e5;
     }
 
     a:hover {
-      color: #003f8a;
+      color: #3730a3;
     }
 
     .container-fluid {
-      margin: 30px auto;
-      padding: 0 60px;
-      max-width: 1400px;
+      margin: 40px auto;
+      padding: 0 24px;
+      max-width: 900px;
     }
 
-    /* Sidebar buffer under last item (Google Scholar) */
-    #sidebar-wrapper .list-group {
-      margin-bottom: 20px;
+    /* Single column layout */
+    .single-column {
+      max-width: 760px;
+      margin: 0 auto;
     }
 
-    /* Sidebar */
-    #sidebar-wrapper .sidebar-heading img {
-      width: 180px;
-      height: 180px;
-      border: 2px solid lightgrey;
+    .profile-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .profile-photo {
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
+      border: 3px solid rgba(99, 102, 241, 0.2);
+      margin-bottom: 16px;
     }
 
-    #sidebar-wrapper .sidebar-heading h5 {
-      margin-top: 15px;
-      margin-bottom: 0;
+    .profile-header h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+      color: #1e1b4b;
+      letter-spacing: 0.04em;
     }
 
-    p.spaced-lines {
-      font-size: 16px;
-      color: #777;
-      margin: 10px 0;
-      line-height: 1.8;
+    .info-line {
+      font-size: 14px;
+      color: #64748b;
+      margin: 0 0 14px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
 
-    /* Remove background hover for list-group-item-action */
-    .list-group-item-action:hover,
-    .list-group-item-action:focus {
-      background-color: transparent !important;
-      color: #0056b3 !important;
+    .link-row {
+      font-size: 13px;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
-    .list-group-item {
-      border: none;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      background: none;
-      padding-left: 0;
-      padding-right: 0;
+    .link-row .sep {
+      color: #cbd5e1;
+      margin: 0 8px;
     }
 
-    i.far,
-    i.fab,
-    i.fa-brands {
-      font-size: 1rem;
-      margin-right: 10px;
+    .main-section {
+      text-align: left;
     }
 
     /* About/Updates styling */
@@ -108,12 +117,16 @@
     }
 
     .updates-section {
-      margin-top: 5px;
+      margin-top: 48px;
     }
 
     h4 {
       margin: 0 0 10px 0;
-      color: #2c3e50;
+      color: #1e1b4b;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
     }
 
     p {
@@ -132,16 +145,24 @@
 
     .update-cell {
       display: table-cell;
-      vertical-align: middle;
-      padding: 4px 8px;
-      font-size: 14px;
-      /* Smaller font for updates */
+      vertical-align: top;
+      padding: 10px 12px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .update-cell:first-child {
+      padding-left: 0;
     }
 
     .update-date {
-      font-weight: 900;
-      color: #0056b3;
+      font-weight: 600;
+      font-size: 12px;
+      color: #4f46e5;
       white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: 80px;
     }
 
     /* Footer */
@@ -156,51 +177,6 @@
       font-size: 12px;
     }
 
-    /* Outlined badges with fixed width, text centered, smaller font */
-    .badge-outlined {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      vertical-align: middle;
-      width: 180px;
-      /* Fixed width to fit "Speaking Engagement" comfortably */
-      padding: 0.3em 0.6em;
-      font-size: 0.7rem;
-      /* Slightly smaller font */
-      font-weight: 500;
-      line-height: 1.2;
-      border-radius: 0.25rem;
-      margin-right: 8px;
-      background-color: transparent;
-      border: 1px solid;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    /* Custom badge colors */
-    .badge-speaking {
-      color: #8b0000;
-      /* Deep red */
-      border-color: #8b0000;
-    }
-
-    .badge-paper {
-      color: #00008b;
-      /* Deep blue */
-      border-color: #00008b;
-    }
-
-    .badge-launch {
-      color: #006400;
-      /* Deep green */
-      border-color: #006400;
-    }
-
-    .badge-update {
-      color: purple;
-      /* Deep green */
-      border-color: purple;
-    }
   </style>
 </head>
 
@@ -209,273 +185,152 @@
     <br />
     <div class="main-content">
       <div class="container-fluid">
-        <!-- Use Bootstrap row/columns to allow sidebar to stack on smaller screens -->
-        <div class="row">
-          <!-- Sidebar -->
-          <div class="col-12 col-md-3" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center mb-4">
-              <img src="static/me.png" alt="Cyrus Nikolaidis" />
-              <h5>Cyrus Nikolaidis</h5>
-            </div>
-            <p class="spaced-lines" style="margin-bottom: 10">
-              🤖 &nbsp; AI Research Engineer <br />
-              💼 &nbsp; Meta <br />
-              📍 &nbsp; New York, NY
+        <div class="single-column">
+          <!-- Header -->
+          <div class="profile-header">
+            <img src="static/me.png" alt="Cyrus Nikolaidis" class="profile-photo" />
+            <h1>Cyrus Nikolaidis</h1>
+            <p class="info-line">AI Research Engineer · Meta · New York</p>
+            <p class="link-row">
+              <a href="mailto:cyni.contact@icloud.com">Email</a>
+              <span class="sep">·</span>
+              <a href="https://linkedin.com/in/cynikolai">LinkedIn</a>
+              <span class="sep">·</span>
+              <a href="https://github.com/cynikolai">GitHub</a>
+              <span class="sep">·</span>
+              <a href="https://scholar.google.com/citations?user=r7xr5pIAAAAJ&hl=en">Scholar</a>
+              <span class="sep">·</span>
+              <a href="https://huggingface.co/cynikolai">HuggingFace</a>
             </p>
-            <div class="list-group list-group-flush">
-              <a href="mailto:cyni.contact@icloud.com" class="list-group-item list-group-item-action">
-                <i class="far fa-envelope"></i> Email
-              </a>
-              <a href="https://linkedin.com/in/cynikolai" class="list-group-item list-group-item-action">
-                <i class="fab fa-linkedin-in"></i> LinkedIn
-              </a>
-              <a href="https://github.com/cynikolai" class="list-group-item list-group-item-action">
-                <i class="fab fa-github"></i> GitHub
-              </a>
-              <a href="https://scholar.google.com/citations?user=r7xr5pIAAAAJ&hl=en"
-                class="list-group-item list-group-item-action">
-                <i class="fa-brands fa-google-scholar"></i> Google Scholar
-              </a>
-              <a href="https://huggingface.co/cynikolai" class="list-group-item list-group-item-action">
-                <i class="fas fa-smile me-2"></i> HuggingFace
-              </a>
-            </div>
           </div>
 
           <!-- Main Content -->
-          <div class="col-12 col-md-9" id="page-content-wrapper">
+          <div class="main-section">
             <div class="about-section">
-              <h4 style="margin-bottom: 10px">About Me</h4>
               <p>
-                I'm an AI Research Engineer, interested in Safety, Security, and Privacy. I work at Meta within
-                Superintelligence Labs' Trust and Safety team, focusing on building evals, monitors, and guardrails
-                for our AI systems across a variety of risks. I've also been involved in incubating the use of AI and ML in the Privacy and Security orgs.
+                I build systems that help make AI safer — guardrails, evaluations, and monitoring for large language models.
               </p>
               <p>
-                I've been involved in several open-source projects, including
+                I'm a Tech Lead at Meta's Superintelligence Labs, working on AI trust monitoring. Previously I led efforts to incubate the use of ML for privacy and security challenges at Meta.
+              </p>
+              <p>
+                Much of our work has been open-sourced and widely adopted by the community:
                 <a href="https://github.com/meta-llama/PurpleLlama">CyberSecEval</a>,
-                <a href="https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M">PromptGuard</a>,
                 <a href="https://meta-llama.github.io/PurpleLlama/LlamaFirewall/">LlamaFirewall</a>,
-                <a href="https://huggingface.co/meta-llama/Llama-Guard-3-8B">LlamaGuard</a>, and
-                <a href="https://github.com/meta-llama/llama-stack">the Llama Stack</a>.
+                <a href="https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M">PromptGuard</a>, and
+                <a href="https://huggingface.co/meta-llama/Llama-Guard-3-8B">LlamaGuard</a>.
               </p>
               <p>
-                Before GenAI, I worked on
-                traditional ML, particularly large-scale recommendation
-                systems. I built the first version of Instagram's feed
-                recommendations ranking model and also worked on Facebook's
-                search engine.
+                Before all this, I worked on recommendation systems — I built the first version of Instagram's feed ranking and worked on Facebook search.
               </p>
             </div>
 
-            <div class="updates-section" style="margin-top: 20px">
-              <h4 style="margin-bottom: 20px">Updates</h4>
+            <div class="updates-section">
+              <h4 style="margin-bottom: 24px">Updates</h4>
               <div class="updates-table">
-
                 <div class="update-row">
                   <div class="update-cell update-date">Aug 2025</div>
                   <div class="update-cell">
-                    <span class="badge-outlined badge-speaking">
-                      Speaking Engagement
-                    </span>
-                  </div>
-                  <div class="update-cell">
-                    Spoke at
-                    <a href="https://www.blackhat.com/us-25/arsenal/schedule/index.html#llamafirewall-guardrails-for-controlling-agentic-ai-systems-45655">
-                      Blackhat Arsenal
-                    </a>
-                    and 
-                    <a href="https://www.dianainitiative.org/home">
-                      TDI
-                    </a>
-                    in Vegas this year.
+                    Spoke at <a href="https://www.blackhat.com/us-25/arsenal/schedule/index.html#llamafirewall-guardrails-for-controlling-agentic-ai-systems-45655">Blackhat Arsenal</a> and <a href="https://www.dianainitiative.org/home">The Diana Initiative</a> in Las Vegas.
                   </div>
                 </div>
 
                 <div class="update-row">
                   <div class="update-cell update-date">Jun 2025</div>
                   <div class="update-cell">
-                    <span class="badge-outlined badge-update">
-                      Update
-                    </span>
-                  </div>
-                  <div class="update-cell">
-                    Took a new role/title at Meta; I joined Superintelligence Labs as an AI research engineer to work on safety evaluations and monitoring of our AI systems.
-                  </div>
-                </div>
-
-
-
-                <div class="update-row">
-                  <div class="update-cell update-date">Apr 2025</div>
-                  <div class="update-cell">
-                    <span class="badge-outlined badge-launch">Product Launch</span>
-                  </div>
-                  <div class="update-cell">
-                    We released two new <a
-                      href="https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M">PromptGuard</a> models —
-                    <a href="https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M">Llama Prompt Guard 2 86M</a>
-                    and
-                    <a href="https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-22M">Llama Prompt Guard 2 22M</a>.
-                    We believe these to be the strongest jailbreak detection models available.
+                    Joined Meta's Superintelligence Labs as an AI Research Engineer, working on safety evaluations and monitoring.
                   </div>
                 </div>
 
                 <div class="update-row">
                   <div class="update-cell update-date">Apr 2025</div>
                   <div class="update-cell">
-                    <span class="badge-outlined badge-paper">New Paper</span>
+                    Released <a href="https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M">Llama Prompt Guard 2 86M</a> and <a href="https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-22M">22M</a> — we believe these to be the strongest jailbreak detection models available.
                   </div>
+                </div>
+
+                <div class="update-row">
+                  <div class="update-cell update-date">Apr 2025</div>
                   <div class="update-cell">
-                    <a
-                      href="https://ai.meta.com/research/publications/llamafirewall-an-open-source-guardrail-system-for-building-secure-ai-agents/">
-                      LlamaFirewall
-                    </a> - a framework for deploying our AI agent defenses, like PromptGuard and Alignment Checks. (Also
-                    see the
-                    <a href="https://meta-llama.github.io/PurpleLlama/LlamaFirewall/">framework website</a>
-                    and the <a href="https://github.com/meta-llama/PurpleLlama/tree/main/LlamaFirewall">GitHub repo</a>)
+                    Published <a href="https://ai.meta.com/research/publications/llamafirewall-an-open-source-guardrail-system-for-building-secure-ai-agents/">LlamaFirewall</a> — a framework for deploying AI agent defenses. (<a href="https://meta-llama.github.io/PurpleLlama/LlamaFirewall/">Website</a>, <a href="https://github.com/meta-llama/PurpleLlama/tree/main/LlamaFirewall">GitHub</a>)
                   </div>
                 </div>
 
                 <div class="update-row">
                   <div class="update-cell update-date">Feb 2025</div>
                   <div class="update-cell">
-                    <span class="badge-outlined badge-speaking">
-                      Speaking Engagement
-                    </span>
-                  </div>
-                  <div class="update-cell">
-                    Hosted a workshop and demo session
-                    at
-                    <a href="https://aisecurity.forum/paris-ai-security-forum-25">
-                      AI Security Forum
-                    </a>
-                    in Paris.
+                    Hosted a workshop and demo at <a href="https://aisecurity.forum/paris-ai-security-forum-25">AI Security Forum</a> in Paris.
                   </div>
                 </div>
 
                 <div class="update-row">
                   <div class="update-cell update-date">Aug 2024</div>
                   <div class="update-cell">
-                    <span class="badge-outlined badge-speaking">
-                      Speaking Engagement
-                    </span>
-                  </div>
-                  <div class="update-cell">
-                    Spoke at
-                    <a href="https://aivillage.org/">DefCon AI Village</a>
-                    — "Evaluations and Guardrails against Prompt Injection
-                    attacks on LLM-powered applications."
+                    Spoke at <a href="https://aivillage.org/">DefCon AI Village</a> on evaluations and guardrails against prompt injection attacks.
                   </div>
                 </div>
 
                 <div class="update-row">
                   <div class="update-cell update-date">Aug 2024</div>
                   <div class="update-cell">
-                    <span class="badge-outlined badge-speaking">
-                      Speaking Engagement
-                    </span>
-                  </div>
-                  <div class="update-cell">
-                    Hosted a workshop at the
-                    <a href="https://aisecurity.forum/past-events/ai-security-forum-24">
-                      AI Security Forum
-                    </a>
-                    .
+                    Hosted a workshop at <a href="https://aisecurity.forum/past-events/ai-security-forum-24">AI Security Forum</a>.
                   </div>
                 </div>
 
                 <div class="update-row">
                   <div class="update-cell update-date">Jul 2024</div>
                   <div class="update-cell">
-                    <span class="badge-outlined badge-paper">New Paper</span>
-                  </div>
-                  <div class="update-cell">
-                    <a href="https://arxiv.org/abs/2408.01605">
-                      CYBERSECEVAL 3: Advancing the Evaluation of
-                      Cybersecurity Risks and Capabilities in Large Language
-                      Models
-                    </a>
+                    Published <a href="https://arxiv.org/abs/2408.01605">CyberSecEval 3</a> — advancing the evaluation of cybersecurity risks in LLMs.
                   </div>
                 </div>
 
                 <div class="update-row">
                   <div class="update-cell update-date">Jul 2024</div>
                   <div class="update-cell">
-                    <span class="badge-outlined badge-paper">New Paper</span>
-                  </div>
-                  <div class="update-cell">
-                    <a href="https://arxiv.org/abs/2407.21783">
-                      Llama 3 Herd of Models.
-                    </a>
-                    Our team worked on cybersecurity risk measurements of the
-                    models and the system-level safety models.
+                    Co-authored <a href="https://arxiv.org/abs/2407.21783">The Llama 3 Herd of Models</a> paper — our team contributed cybersecurity risk measurements and system-level safety models.
                   </div>
                 </div>
 
                 <div class="update-row">
                   <div class="update-cell update-date">Jul 2024</div>
                   <div class="update-cell">
-                    <span class="badge-outlined badge-launch">
-                      Product Launch
-                    </span>
-                  </div>
-                  <div class="update-cell">
-                    Launched
-                    <a href="https://huggingface.co/meta-llama/Prompt-Guard-86M">
-                      PromptGuard
-                    </a>
-                    and
-                    <a href="https://huggingface.co/meta-llama/Llama-Guard-3-8B">
-                      LlamaGuard 3,
-                    </a>
-                    part of Meta's system-level safety stack for Llama.
+                    Launched <a href="https://huggingface.co/meta-llama/Prompt-Guard-86M">PromptGuard</a> and <a href="https://huggingface.co/meta-llama/Llama-Guard-3-8B">LlamaGuard 3</a>, part of Meta's system-level safety stack for Llama.
                   </div>
                 </div>
 
                 <div class="update-row">
                   <div class="update-cell update-date">Apr 2024</div>
                   <div class="update-cell">
-                    <span class="badge-outlined badge-paper">New Paper</span>
-                  </div>
-                  <div class="update-cell">
-                    <a href="https://arxiv.org/abs/2404.13161">
-                      CyberSecEval 2: A Wide-Ranging Cybersecurity Evaluation
-                      Suite for Large Language Models
-                    </a>
+                    Published <a href="https://arxiv.org/abs/2404.13161">CyberSecEval 2</a> — a wide-ranging cybersecurity evaluation suite for LLMs.
                   </div>
                 </div>
 
                 <div class="update-row">
                   <div class="update-cell update-date">Dec 2023</div>
                   <div class="update-cell">
-                    <span class="badge-outlined badge-paper">New Paper</span>
-                  </div>
-                  <div class="update-cell">
-                    <a href="https://arxiv.org/abs/2312.04724">
-                      Purple Llama CyberSecEval: A Secure Coding Benchmark for
-                      Language Models
-                    </a>
+                    Published <a href="https://arxiv.org/abs/2312.04724">Purple Llama CyberSecEval</a> — a secure coding benchmark for language models.
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- end col -->
         </div>
-        <!-- end row -->
       </div>
     </div>
 
     <!-- Footer -->
     <footer>
-      <p>© 2025 Cyrus Nikolaidis. All Rights Reserved.</p>
+      <p>© 2026 Cyrus Nikolaidis</p>
     </footer>
   </div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/cf9fe4cc1f.js" crossorigin="anonymous"></script>
+
+  <!-- GoatCounter Analytics -->
+  <script data-goatcounter="https://cynikolai.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 </body>
 
 </html>
