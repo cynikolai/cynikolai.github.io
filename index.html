@@ -3,58 +3,54 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Cyrus Nikolaidis builds AI safety systems spanning evaluations, guardrails, and scalable monitoring for deployed models and products." />
   <title>Cyrus Nikolaidis</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- FontAwesome Icons -->
   <style>
     :root {
-      color-scheme: dark;
-      --bg-color: #0a0a0f;
-      --bg-glow-1: rgba(99, 102, 241, 0.15);
-      --bg-glow-2: rgba(129, 140, 248, 0.10);
-      --text-color: #e2e8f0;
-      --heading-color: #f1f5f9;
-      --muted-color: #94a3b8;
-      --subtle-color: #64748b;
-      --separator-color: #475569;
-      --link-color: #a5b4fc;
-      --link-hover: #c7d2fe;
-      --date-color: #818cf8;
-      --photo-border: rgba(165, 180, 252, 0.25);
-      --toggle-bg: rgba(15, 23, 42, 0.75);
-      --toggle-border: rgba(165, 180, 252, 0.24);
-      --toggle-text: #dbeafe;
-      --toggle-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
-    }
-
-    html[data-theme="light"] {
       color-scheme: light;
-      --bg-color: #eef4fb;
-      --bg-glow-1: rgba(59, 130, 246, 0.18);
-      --bg-glow-2: rgba(14, 116, 144, 0.14);
-      --text-color: #18324a;
-      --heading-color: #0f2740;
-      --muted-color: #4c6a86;
-      --subtle-color: #5e7b96;
-      --separator-color: #89a3bc;
-      --link-color: #0f5ea8;
-      --link-hover: #0a4a86;
-      --date-color: #1e6bb8;
-      --photo-border: rgba(30, 107, 184, 0.20);
-      --toggle-bg: rgba(255, 255, 255, 0.78);
-      --toggle-border: rgba(15, 94, 168, 0.18);
-      --toggle-text: #12385a;
-      --toggle-shadow: 0 12px 28px rgba(37, 99, 235, 0.12);
+      --bg-color: #f7f5ef;
+      --text-color: #292a26;
+      --heading-color: #161713;
+      --muted-color: #686961;
+      --subtle-color: #77786f;
+      --rule-color: #d9d6cc;
+      --link-color: #285f82;
+      --link-hover: #174661;
+      --date-color: #696b63;
+      --photo-border: #d0cdc3;
+      --toggle-bg: #f7f5ef;
+      --toggle-border: #cbc8be;
+      --toggle-text: #55574f;
     }
 
-    /* Font face declaration for Overused Grotesk */
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg-color: #171815;
+      --text-color: #d9d9d2;
+      --heading-color: #f0f0e9;
+      --muted-color: #a3a49c;
+      --subtle-color: #8d8e86;
+      --rule-color: #383934;
+      --link-color: #8eb8cf;
+      --link-hover: #b5d2e1;
+      --date-color: #a2a39b;
+      --photo-border: #484943;
+      --toggle-bg: #171815;
+      --toggle-border: #4a4b45;
+      --toggle-text: #b8b9b1;
+    }
+
     @font-face {
-      font-family: "Overused Grotesk";
-      src: url("fonts/OverusedGrotesk-Roman.woff2") format("woff2");
+      font-family: "Charter";
+      src: url("fonts/Charter-Regular.woff2") format("woff2");
       font-weight: 400;
       font-style: normal;
       font-display: swap;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     html {
@@ -64,14 +60,11 @@
 
     body {
       margin: 0;
-      padding: 0;
       min-height: 100%;
-      font-family: "Overused Grotesk", system-ui, -apple-system, sans-serif;
-      font-size: 18px;
-      background: radial-gradient(ellipse at 30% 20%, var(--bg-glow-1) 0%, transparent 50%),
-                  radial-gradient(ellipse at 80% 80%, var(--bg-glow-2) 0%, transparent 40%),
-                  var(--bg-color);
-      background-attachment: fixed;
+      font-family: "Charter", Georgia, serif;
+      font-size: 17px;
+      line-height: 1.62;
+      background: var(--bg-color);
       color: var(--text-color);
       transition: background-color 0.25s ease, color 0.25s ease;
     }
@@ -85,71 +78,48 @@
 
     .theme-toggle {
       position: absolute;
-      top: 20px;
-      right: 24px;
+      top: 24px;
+      right: 28px;
       border: 1px solid var(--toggle-border);
       background: var(--toggle-bg);
       color: var(--toggle-text);
-      border-radius: 999px;
-      width: 62px;
-      height: 34px;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
       padding: 0;
       display: inline-flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       line-height: 1;
-      box-shadow: var(--toggle-shadow);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
       cursor: pointer;
-      overflow: hidden;
     }
 
     .theme-toggle:hover {
-      transform: translateY(-1px);
-    }
-
-    .theme-toggle-track {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      padding: 0 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      color: var(--heading-color);
+      border-color: var(--muted-color);
     }
 
     .theme-toggle svg {
-      width: 14px;
-      height: 14px;
+      width: 17px;
+      height: 17px;
       stroke: currentColor;
       fill: none;
       stroke-linecap: round;
       stroke-linejoin: round;
-      stroke-width: 1.8;
-      opacity: 0.9;
+      stroke-width: 1.6;
     }
 
-    .theme-toggle-thumb {
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: rgba(15, 23, 42, 0.92);
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.22);
-      transition: transform 0.22s ease, background-color 0.25s ease;
+    .theme-toggle .icon-sun {
+      display: none;
     }
 
-    html[data-theme="light"] .theme-toggle-thumb {
-      transform: translateX(28px);
-      background: rgba(255, 255, 255, 0.98);
+    html[data-theme="dark"] .theme-toggle .icon-moon {
+      display: none;
     }
 
-    html[data-theme="light"] .theme-toggle svg {
-      opacity: 0.75;
+    html[data-theme="dark"] .theme-toggle .icon-sun {
+      display: block;
     }
 
     .main-content {
@@ -157,130 +127,131 @@
     }
 
     a {
-      text-decoration: none;
       color: var(--link-color);
-      transition: color 0.2s ease;
+      text-decoration-color: color-mix(in srgb, var(--link-color) 38%, transparent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+      transition: color 0.15s ease, text-decoration-color 0.15s ease;
     }
 
     a:hover {
       color: var(--link-hover);
+      text-decoration-color: currentColor;
     }
 
     .container-fluid {
-      margin: 40px auto;
-      padding: 0 24px;
-      max-width: 900px;
+      margin: 0 auto;
+      padding: 72px 28px 48px;
+      max-width: 1016px;
     }
 
-    /* Single column layout */
     .single-column {
-      max-width: 760px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
     .profile-header {
-      text-align: center;
-      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: 116px minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 36px;
+      padding-bottom: 34px;
+      border-bottom: 1px solid var(--rule-color);
     }
 
     .profile-photo {
-      width: 140px;
-      height: 140px;
+      display: block;
+      width: 116px;
+      height: 116px;
       border-radius: 50%;
-      border: 3px solid var(--photo-border);
-      margin-bottom: 16px;
+      border: 1px solid var(--photo-border);
     }
 
     .profile-header h1 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      margin: 0 0 8px 0;
+      margin: 0 0 4px;
       color: var(--heading-color);
-      letter-spacing: 0.04em;
+      font-family: "Charter", Georgia, serif;
+      font-size: clamp(2.2rem, 6vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
     }
 
-    .info-line {
-      font-size: 14px;
-      color: var(--muted-color);
-      margin: 0 0 14px 0;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+    .profile-copy {
+      min-width: 0;
     }
 
     .link-row {
-      font-size: 13px;
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      margin: 9px 0 0;
+      color: var(--muted-color);
+      font-size: 14px;
+      line-height: 1.8;
     }
 
     .link-row .sep {
-      color: var(--separator-color);
-      margin: 0 8px;
+      color: var(--rule-color);
+      margin: 0 7px;
     }
 
-    .main-section {
-      text-align: left;
-    }
-
-    /* About/Updates styling */
     .about-section {
-      margin-top: 0;
+      max-width: 860px;
+      font-family: "Charter", Georgia, serif;
+      font-size: 18.5px;
+      line-height: 1.58;
+    }
+
+    .about-section p {
+      margin: 0 0 14px;
     }
 
     .updates-section {
-      margin-top: 48px;
+      margin-top: 54px;
     }
 
-    h4 {
-      margin: 0 0 10px 0;
+    .section-heading {
+      margin: 0 0 18px;
       color: var(--heading-color);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 600;
+      font-family: "Charter", Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.015em;
     }
 
     p {
-      margin: 0 0 10px 0;
+      margin: 0 0 12px;
     }
 
-    /* Updates "invisible table" */
     .updates-table {
-      display: table;
-      width: 100%;
+      border-top: 1px solid var(--rule-color);
     }
 
     .update-row {
-      display: table-row;
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 16px;
+      padding: 17px 0 18px;
+      border-bottom: 1px solid var(--rule-color);
     }
 
     .update-cell {
-      display: table-cell;
-      vertical-align: top;
-      padding: 10px 12px;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .update-cell:first-child {
-      padding-left: 0;
+      padding: 0;
+      font-size: 15.5px;
+      line-height: 1.55;
     }
 
     .update-date {
-      font-weight: 600;
-      font-size: 12px;
+      padding-top: 2px;
       color: var(--date-color);
-      white-space: nowrap;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.075em;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      width: 80px;
-      padding-top: 13px;
+      white-space: nowrap;
     }
 
-    /* Footer */
     footer {
-      padding: 10px;
+      padding: 14px 24px 30px;
       color: var(--subtle-color);
       text-align: center;
     }
@@ -293,85 +264,101 @@
     @media (max-width: 640px) {
       .theme-toggle {
         top: 14px;
-        right: 16px;
-        width: 58px;
-        height: 32px;
+        right: 14px;
+        width: 36px;
+        height: 36px;
       }
 
       .container-fluid {
-        margin-top: 52px;
+        padding: 68px 22px 38px;
+      }
+
+      .profile-header {
+        grid-template-columns: 88px minmax(0, 1fr);
+        gap: 18px;
+        margin-bottom: 30px;
+        padding-bottom: 28px;
+      }
+
+      .profile-photo {
+        width: 88px;
+        height: 88px;
+      }
+
+      .profile-header h1 {
+        font-size: clamp(2rem, 10vw, 2.4rem);
+      }
+
+      .link-row .sep {
+        margin: 0 4px;
+      }
+
+      .updates-section {
+        margin-top: 46px;
+      }
+
+      .update-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 15px 0 17px;
       }
     }
-
   </style>
 </head>
 
 <body>
   <div class="page-wrap">
     <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color mode">
-      <span class="theme-toggle-track" aria-hidden="true">
-        <svg class="icon-moon" viewBox="0 0 24 24">
-          <path d="M20 14.2A7.9 7.9 0 0 1 9.8 4 8.8 8.8 0 1 0 20 14.2z"></path>
-        </svg>
-        <svg class="icon-sun" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2.5v2.5"></path>
-          <path d="M12 19v2.5"></path>
-          <path d="M21.5 12H19"></path>
-          <path d="M5 12H2.5"></path>
-          <path d="M18.7 5.3l-1.8 1.8"></path>
-          <path d="M7.1 16.9l-1.8 1.8"></path>
-          <path d="M18.7 18.7l-1.8-1.8"></path>
-          <path d="M7.1 7.1L5.3 5.3"></path>
-        </svg>
-        <span class="theme-toggle-thumb"></span>
-      </span>
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 14.2A7.9 7.9 0 0 1 9.8 4 8.8 8.8 0 1 0 20 14.2z"></path>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2.5v2.5M12 19v2.5M21.5 12H19M5 12H2.5M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8M18.7 18.7l-1.8-1.8M7.1 7.1L5.3 5.3"></path>
+      </svg>
     </button>
-    <br />
-    <div class="main-content">
+    <main class="main-content">
       <div class="container-fluid">
         <div class="single-column">
           <!-- Header -->
-          <div class="profile-header">
+          <header class="profile-header">
             <img src="static/me.png" alt="Cyrus Nikolaidis" class="profile-photo" />
-            <h1>Cyrus Nikolaidis</h1>
-            <p class="info-line">AI Research Engineer · Meta · New York</p>
-            <p class="link-row">
-              <a href="mailto:cyni.contact@icloud.com">Email</a>
-              <span class="sep">·</span>
-              <a href="https://linkedin.com/in/cynikolai">LinkedIn</a>
-              <span class="sep">·</span>
-              <a href="https://github.com/cynikolai">GitHub</a>
-              <span class="sep">·</span>
-              <a href="https://scholar.google.com/citations?user=r7xr5pIAAAAJ&hl=en">Scholar</a>
-              <span class="sep">·</span>
-              <a href="https://huggingface.co/cynikolai">HuggingFace</a>
-            </p>
-          </div>
+            <div class="profile-copy">
+              <h1>Cyrus Nikolaidis</h1>
+              <p class="link-row">
+                <a href="mailto:cyni.contact@icloud.com">Email</a>
+                <span class="sep">·</span>
+                <a href="https://linkedin.com/in/cynikolai">LinkedIn</a>
+                <span class="sep">·</span>
+                <a href="https://github.com/cynikolai">GitHub</a>
+                <span class="sep">·</span>
+                <a href="https://scholar.google.com/citations?user=r7xr5pIAAAAJ&amp;hl=en">Scholar</a>
+                <span class="sep">·</span>
+                <a href="https://huggingface.co/cynikolai">Hugging Face</a>
+              </p>
+            </div>
+          </header>
 
           <!-- Main Content -->
           <div class="main-section">
             <div class="about-section">
               <p>
-                I build systems that help make AI more controllable and reliable — guardrails, evaluations, and monitoring for large language models.
+                I build safety systems for AI, spanning evaluations, guardrails, and scalable monitoring for deployed models and products.
               </p>
               <p>
-                I'm a Tech Lead at Meta's Superintelligence Labs, working on safety evaluations and scalable oversight of products and models. Previously I led efforts to incubate the use of ML for privacy and security challenges at Meta.
-              </p>
-              <p>
-                Much of our work has been open-sourced and widely adopted by the community:
+                At Meta Superintelligence Labs, I lead work on safety evaluations and oversight for deployed products and models. Before moving to MSL, I led and contributed to team efforts behind several open-source safety projects at Meta, including
                 <a href="https://github.com/meta-llama/PurpleLlama">CyberSecEval</a>,
                 <a href="https://meta-llama.github.io/PurpleLlama/LlamaFirewall/">LlamaFirewall</a>,
-                <a href="https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M">PromptGuard</a>, and
-                <a href="https://huggingface.co/meta-llama/Llama-Guard-3-8B">LlamaGuard</a>.
+                <a href="https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M">Prompt Guard</a>, and
+                <a href="https://huggingface.co/meta-llama/Llama-Guard-3-8B">Llama Guard</a>.
               </p>
               <p>
-                Before all this, I worked on recommendation systems — I built the first version of Instagram's feed recommendations ranking and worked on Facebook search.
+                Earlier at Meta, I incubated applications of machine learning to privacy and security problems. Before that, I worked on recommendation systems, building the first version of Instagram's feed recommendations ranking and working on Facebook Search.
               </p>
             </div>
 
-            <div class="updates-section">
-              <h4 style="margin-bottom: 24px">Updates</h4>
+            <section class="updates-section">
+              <h2 class="section-heading">Selected updates</h2>
               <div class="updates-table">
                 <div class="update-row">
                   <div class="update-cell update-date">Jul 2026</div>
@@ -397,7 +384,7 @@
                 <div class="update-row">
                   <div class="update-cell update-date">Aug 2025</div>
                   <div class="update-cell">
-                    Spoke at <a href="https://www.blackhat.com/us-25/arsenal/schedule/index.html#llamafirewall-guardrails-for-controlling-agentic-ai-systems-45655">Blackhat Arsenal</a> and <a href="https://www.dianainitiative.org/home">The Diana Initiative</a> in Las Vegas.
+                    Spoke at <a href="https://www.blackhat.com/us-25/arsenal/schedule/index.html#llamafirewall-guardrails-for-controlling-agentic-ai-systems-45655">Black Hat Arsenal</a> and <a href="https://www.dianainitiative.org/home">The Diana Initiative</a> in Las Vegas.
                   </div>
                 </div>
 
@@ -411,7 +398,7 @@
                 <div class="update-row">
                   <div class="update-cell update-date">Apr 2025</div>
                   <div class="update-cell">
-                    Released <a href="https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M">Llama Prompt Guard 2 86M</a> and <a href="https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-22M">22M</a> — we believe these to be the strongest jailbreak detection models available.
+                    Released <a href="https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M">Llama Prompt Guard 2 86M</a> and <a href="https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-22M">22M</a> — compact models for detecting jailbreak and prompt-injection attacks.
                   </div>
                 </div>
 
@@ -478,21 +465,17 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </div>
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer>
       <p>© 2026 Cyrus Nikolaidis</p>
     </footer>
   </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://kit.fontawesome.com/cf9fe4cc1f.js" crossorigin="anonymous"></script>
 
   <!-- GoatCounter Analytics -->
   <script data-goatcounter="https://cynikolai.goatcounter.com/count"
@@ -501,7 +484,6 @@
     const root = document.documentElement;
     const themeToggle = document.getElementById("theme-toggle");
     const savedTheme = localStorage.getItem("theme");
-    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
 
     const setTheme = (theme) => {
       root.dataset.theme = theme;
@@ -509,7 +491,7 @@
       themeToggle.setAttribute("title", theme === "light" ? "Switch to dark mode" : "Switch to light mode");
     };
 
-    setTheme(savedTheme || (systemPrefersLight ? "light" : "dark"));
+    setTheme(savedTheme || "light");
 
     themeToggle.addEventListener("click", () => {
       const nextTheme = root.dataset.theme === "light" ? "dark" : "light";
